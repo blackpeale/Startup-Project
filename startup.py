@@ -5,8 +5,6 @@ warnings.filterwarnings('ignore')
 import joblib
 import pandas as pd
 import numpy as np
-# import matplotlib.pyplot as plt
-# %matplotlib inline
 import seaborn as sns
 import plotly.express as px
 import sklearn
@@ -33,11 +31,6 @@ df['Administration'] = mgt_scale.fit_transform(df[['Administration']])
 mkt_scale = StandardScaler()
 df['Marketing Spend'] = mkt_scale.fit_transform(df[['Marketing Spend']])
 
-
-# scaler = StandardScaler()
-# for i in df.drop('Profit', axis = 1).columns:
-#     df[i] = scaler.fit_transform(df[[i]])
-
 # Train and Test
 from sklearn.model_selection import train_test_split
 x = df.drop('Profit', axis = 1)
@@ -59,7 +52,7 @@ lin_reg.fit(xtrain, ytrain)
 
 #----------------------------------STREAMLIT IMPLEMENTATION----------------------
 st.markdown("<h1 style = 'color: #0C2D57; text-align: center; font-family: helvetica'>STARTUP PROFIT PREDICTOR</h1>", unsafe_allow_html = True)
-st.markdown("<h4 style = 'margin: -30px; color: #F11A7B; text-align: center; font-family: cursive '>Built By PluralCode Data Science Cohort</h4>", unsafe_allow_html = True)
+st.markdown("<h4 style = 'margin: -30px; color: #F11A7B; text-align: center; font-family: cursive '>Built By Chiemeziem Okeke</h4>", unsafe_allow_html = True)
 st.markdown("<br>", unsafe_allow_html= True)
 
 st.image('pngwing.com.png')
@@ -104,7 +97,3 @@ if prediction_button:
     predicted = lin_reg.predict(inputs)
     st.success(f'Thr profit predicted for your company is {predicted[0].round(2)}')
 
-# # Model Prediction
-# predicted = model.predict(inputs)
-
-# st.success(predicted)
